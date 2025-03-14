@@ -4,7 +4,7 @@
     font-weight: bold;
     display: inline-block;
     font-size: 40px;
-    clip-path: inset(0 3ch 0 0);
+    clip-path: inset(0 3.4ch 0 0);
     animation: l 1s steps(4, jump-none) infinite;
 }
   
