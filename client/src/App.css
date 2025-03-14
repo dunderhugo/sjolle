@@ -4,3 +4,12 @@
   padding: 2rem;
   text-align: center;
 }
+
+@font-face {
+  font-family: "JetBrainsMonoNL-Thin";
+  src: url(../fonts/JetBrainsMonoNL-Thin.ttf);
+}
+
+body{
+  font-family: JetBrainsMonoNL-Thin;
+}

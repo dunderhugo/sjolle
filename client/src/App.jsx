@@ -1,12 +1,15 @@
-import { useState } from 'react'
-import './App.css'
+import { useState , useEffect} from 'react';
+import './App.css';
+import UnderConstruction from './components/UnderConstruction/UnderConstruction';
+import Footer from './components/Footer/Footer'
 
 function App() {
 
 
   return (
     <>
-    <h1>Hi.</h1>
+        <UnderConstruction/>
+        <Footer/>
 
     </>
   )
