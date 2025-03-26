@@ -33,18 +33,25 @@ function Sudoku() {
                 <h1>Sudoku</h1>
                 <h2>Difficulty: {difficulty}</h2>
                 <div className={styles.puzzle}>
-                    {puzzle.map((row, index) => (
-                        row.map((num, index) => (
-                            <div key={index} className={styles.cell}>
+                    {puzzle.map((row, rowIndex) =>
+                        row.map((num, colIndex) => (
+                            <div 
+                                key={`${rowIndex}-${colIndex}`} 
+                                className={`${styles.cell} 
+                                    ${(colIndex + 1) % 3 === 0 && colIndex !== 8 ? styles.borderRight : ""} 
+                                    ${(rowIndex + 1) % 3 === 0 && rowIndex !== 8 ? styles.borderBottom : ""}`
+                                }
+                            >
                                 {num === 0 ? " " : num}
                             </div>
                         ))
-                    ))}
+                    )}
                 </div>
                 <button onClick={fetchApi}>New Puzzle</button>
             </div>
         </div>
     );
+    
 }
 
 

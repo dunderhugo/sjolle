@@ -1,0 +1,22 @@
+.cell{
+    border: 1px solid grey;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 30px;
+}
+.borderRight {
+    border-right: 3px solid white;
+}
+
+.borderBottom {
+    border-bottom: 3px solid white;
+}
+
+.puzzle{
+    display:grid;
+    grid-template-columns: repeat(9, 50px);
+    grid-template-rows: repeat(9, 50px);
+    gap: 0px;
+    border: 2px solid grey;
+}
