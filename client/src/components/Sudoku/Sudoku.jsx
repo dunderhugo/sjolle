@@ -23,6 +23,18 @@ function Sudoku() {
     }
 
     const handleKeyDown = (event) => {
+        if(event.key === "ArrowUp") {
+            setActiveCell((prev) => ({ rowIndex: Math.max(prev.rowIndex - 1, 0), colIndex: prev.colIndex }));
+        }
+        if(event.key === "ArrowDown") {
+            setActiveCell((prev) => ({ rowIndex: Math.min(prev.rowIndex + 1, 8), colIndex: prev.colIndex }));
+        }
+        if(event.key === "ArrowLeft") {
+            setActiveCell((prev) => ({ rowIndex: prev.rowIndex, colIndex: Math.max(prev.colIndex - 1, 0) }));
+        }
+        if(event.key === "ArrowRight") {
+            setActiveCell((prev) => ({ rowIndex: prev.rowIndex, colIndex: Math.min(prev.colIndex + 1, 8) }));
+        }
         if(originalPuzzle[activeCell.rowIndex][activeCell.colIndex] !== 0){
             return;
         }
