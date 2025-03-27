@@ -5,12 +5,27 @@
     display: flex;
     font-size: 30px;
 }
-.borderRight {
-    border-right: 3px solid white;
+.cell:hover{
+    background-color: rgb(66,66,66);
 }
-
+.cell:focus{
+    background-color: rgb(99,99,99);
+    outline: none;
+}
+.active{
+    background-color: rgb(99,99,99);
+}
+.borderRight {
+    border-right: 2px solid white;
+}
 .borderBottom {
-    border-bottom: 3px solid white;
+    border-bottom: 2px solid white;
+}
+.borderLeft{
+    border-left: 2px solid white;
+}
+.borderTop {
+    border-top: 2px solid white;
 }
 
 .puzzle{
@@ -19,4 +34,22 @@
     grid-template-rows: repeat(9, 50px);
     gap: 0px;
     border: 2px solid grey;
+}
+
+
+.numpad{
+    display: grid;
+    grid-template-columns: repeat(3);
+    grid-template-rows: repeat(4);
+    gap: 0px;
+    margin-top: 10px;
+}
+
+.numpad button{
+    height: 20px;
+    width: 20px;
+}
+
+.container:focus {
+    outline: none;
 }
