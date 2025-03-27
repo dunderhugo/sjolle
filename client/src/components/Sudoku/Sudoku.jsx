@@ -23,8 +23,6 @@ function Sudoku() {
     }
 
     const handleKeyDown = (event) => {
-        console.log(activeCell);
-        console.log(originalPuzzle[0][0]);
         if(originalPuzzle[activeCell.rowIndex][activeCell.colIndex] !== 0){
             return;
         }
@@ -60,18 +58,38 @@ function Sudoku() {
         );
         setPuzzle(newPuzzle);
     }
+    function checkIfSolved(){
+        let isSolved = true;
+        for (let rowIndex = 0; rowIndex < solution.length; rowIndex++) {
+            for (let colIndex = 0; colIndex < solution[rowIndex].length; colIndex++) {
+            if (solution[rowIndex][colIndex] !== puzzle[rowIndex][colIndex]) {
+                return isSolved = false;
+            }
+            }
+        }
+        isSolved = true;
+        return isSolved;
+    }
 
     useEffect(() => {
         fetchApi()
     }, []);
-
-// <div onClick={() => console.log("Row: ", rowIndex, "Col: ", colIndex, "Num: ", num)}
+    useEffect(() => {
+        if(checkIfSolved()){
+            setTimeout(() => {
+                alert("You solved the puzzle!");
+            }, 100);
+        }
+        else{
+            console.log("not solved yet")
+        }
+    }, [puzzle]);
     
     return (
         <div className={styles.container}  tabIndex={0} onKeyDown={handleKeyDown}>
             <div className={styles.gameBoard}>
                 <h1>Sudoku</h1>
-                <button onClick={() => console.log(activeCell)}>console</button>
+                {/* <button onClick={() => console.log(activeCell)}>console</button> */}
                 <h2>Difficulty: {difficulty}</h2>
                 <div className={styles.puzzle} >
                     {puzzle.map((row, rowIndex) =>

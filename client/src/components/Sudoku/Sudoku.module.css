@@ -1,3 +1,10 @@
+.gameBoard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .cell{
     border: 1px solid grey;
     justify-content: center;
@@ -36,18 +43,21 @@
     border: 2px solid grey;
 }
 
-
 .numpad{
     display: grid;
-    grid-template-columns: repeat(3);
-    grid-template-rows: repeat(4);
+    grid-template-columns: repeat(3, 70px);
+    grid-template-rows: repeat(4, 50px);
     gap: 0px;
     margin-top: 10px;
 }
 
 .numpad button{
-    height: 20px;
-    width: 20px;
+    padding: 0px;
+    margin: 2px;
+    border-radius: 3px;
+    background-color: rgb(200,200,200);
+    color: black;
+    font-size: 30px;
 }
 
 .container:focus {
