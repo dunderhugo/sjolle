@@ -87,6 +87,7 @@ function Sudoku() {
         fetchApi()
     }, []);
     useEffect(() => {
+        if(!activeCell) return;
         if(checkIfSolved()){
             setTimeout(() => {
                 alert("You solved the puzzle!");
