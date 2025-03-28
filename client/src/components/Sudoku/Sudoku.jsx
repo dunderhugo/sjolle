@@ -7,6 +7,7 @@ function Sudoku() {
     const [difficulty, setDifficulty] = useState("");
     const [activeCell, setActiveCell] = useState(null);
     const [originalPuzzle, setOriginalPuzzle] = useState([]);
+    const [normalCandidate, setNormalCandidate] = useState(false);
 
     const fetchApi = async () => {
         try{
@@ -116,26 +117,31 @@ function Sudoku() {
                                     ${rowIndex % 3 === 0 && rowIndex !== 0 ? styles.borderTop : ""}
                                     ${activeCell?.rowIndex === rowIndex && activeCell?.colIndex === colIndex ? styles.active : ""}
                                     ${originalPuzzle[rowIndex][colIndex] !== 0 ? styles.lockedCell : ""}`
-                                }
-                            >
-                                {num === 0 ? " " : num}
+                                }>
+                              {num === 0 ? " " : num}
                             </div>
                         ))
                     )}
                 </div>
-                <div className={styles.numpad}>
-                    <button onClick={() => numPadPress(1)}>1</button>
-                    <button onClick={() => numPadPress(2)}>2</button>
-                    <button onClick={() => numPadPress(3)}>3</button>
-                    <button onClick={() => numPadPress(4)}>4</button>
-                    <button onClick={() => numPadPress(5)}>5</button>
-                    <button onClick={() => numPadPress(6)}>6</button>
-                    <button onClick={() => numPadPress(7)}>7</button>
-                    <button onClick={() => numPadPress(8)}>8</button>
-                    <button onClick={() => numPadPress(9)}>9</button>
-                    <button onClick={() => numPadPress(0)}>X</button>
-                </div>
-                <button onClick={fetchApi}>New Puzzle</button>
+                <div className={styles.numContainer}>
+                  <div className={styles.radioContainer}>
+                    <div onClick={() =>  setNormalCandidate(true)} className={`${styles.radioSelect} ${normalCandidate  ? styles.radioActive : ""}`}>Normal</div>
+                    <div onClick={() =>  setNormalCandidate(false)} className={`${styles.radioSelect} ${normalCandidate  ? "" : styles.radioActive}`}>Candidate</div>
+                  </div>
+                    <div className={styles.numpad}>
+                        <button onClick={() => numPadPress(1)}>1</button>
+                        <button onClick={() => numPadPress(2)}>2</button>
+                        <button onClick={() => numPadPress(3)}>3</button>
+                        <button onClick={() => numPadPress(4)}>4</button>
+                        <button onClick={() => numPadPress(5)}>5</button>
+                        <button onClick={() => numPadPress(6)}>6</button>
+                        <button onClick={() => numPadPress(7)}>7</button>
+                        <button onClick={() => numPadPress(8)}>8</button>
+                        <button onClick={() => numPadPress(9)}>9</button>
+                        <button onClick={() => numPadPress(0)}>X</button>
+                    </div>
+                  </div>
+                  <button onClick={fetchApi}>New Puzzle</button>
             </div>
         </div>
     );
