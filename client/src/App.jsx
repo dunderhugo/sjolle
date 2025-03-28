@@ -11,7 +11,7 @@ function App() {
     <>
     <Sudoku />
     {/* <UnderConstruction /> */}
-    <Footer />
+    {/* <Footer /> */}
 
     </>
   )
