@@ -114,7 +114,8 @@ function Sudoku() {
                                     ${(rowIndex + 1) % 3 === 0 && rowIndex !== 8 ? styles.borderBottom : ""}
                                     ${colIndex % 3 === 0 && colIndex !== 0 ? styles.borderLeft : ""} 
                                     ${rowIndex % 3 === 0 && rowIndex !== 0 ? styles.borderTop : ""}
-                                    ${activeCell?.rowIndex === rowIndex && activeCell?.colIndex === colIndex ? styles.active : ""}`
+                                    ${activeCell?.rowIndex === rowIndex && activeCell?.colIndex === colIndex ? styles.active : ""}
+                                    ${originalPuzzle[rowIndex][colIndex] !== 0 ? styles.lockedCell : ""}`
                                 }
                             >
                                 {num === 0 ? " " : num}
