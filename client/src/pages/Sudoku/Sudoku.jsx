@@ -18,8 +18,8 @@ function Sudoku() {
             setSolution(data.newboard.grids[0].solution);
             setDifficulty(data.newboard.grids[0].difficulty);
         }
-        catch{
-            console.log("error");
+        catch(error){
+            console.error("Error fetching board: ", error);
         }
     }
 
@@ -60,10 +60,14 @@ function Sudoku() {
     };
 
     function numPadPress(numBtn){
-        if(originalPuzzle[activeCell.rowIndex][activeCell.colIndex] !== 0){
+
+        if(!activeCell) return;
+        if(originalPuzzle[activeCell.rowIndex][activeCell.colIndex] !== 0 || originalPuzzle[activeCell.rowIndex][activeCell.colIndex] == null){
             return;
         }
+        
         const { rowIndex, colIndex } = activeCell;
+
         const newPuzzle = puzzle.map((row, rIdx) =>
             row.map((num, cIdx) =>
                 rIdx === rowIndex && cIdx === colIndex ? numBtn : num
@@ -87,6 +91,7 @@ function Sudoku() {
     useEffect(() => {
         fetchApi()
     }, []);
+
     useEffect(() => {
         if(!activeCell) return;
         if(checkIfSolved()){
@@ -103,7 +108,7 @@ function Sudoku() {
         <div className={styles.container}  tabIndex={0} onKeyDown={handleKeyDown}>
             <div className={styles.gameBoard}>
                 <h1>Sudoku</h1>
-                {/* <button onClick={() => console.log(activeCell)}>console</button> */}
+                <button onClick={() => console.log(activeCell)}>console</button>
                 <h2>Difficulty: {difficulty}</h2>
                 <div className={styles.puzzle} >
                     {puzzle.map((row, rowIndex) =>
