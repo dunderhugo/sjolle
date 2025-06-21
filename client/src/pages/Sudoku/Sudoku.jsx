@@ -99,6 +99,7 @@ function Sudoku() {
         if(!activeCell) return;
         if(checkIfSolved()){
             setTimeout(() => {
+                //TODO: Make some type of winning alert compontent
                 alert("You solved the puzzle!");
             }, 100);
         }
