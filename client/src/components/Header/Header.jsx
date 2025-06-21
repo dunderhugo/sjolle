@@ -1,11 +1,9 @@
 import styles from "./Header.module.css"
 
-function Header(){
+function Header({gamesName = ""}){
     return(
         <>
-        <div>
-            Header
-        </div>
+        <h1 className={styles.title}>{gamesName}</h1>
         </>
     )
 }

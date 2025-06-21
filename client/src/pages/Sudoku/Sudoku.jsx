@@ -1,5 +1,6 @@
 import Cell from './Cell';
 import styles from './Sudoku.module.css';
+import Header from '../../components/Header/Header';
 import { useEffect, useState,  } from 'react';
 
 function Sudoku() {
@@ -110,7 +111,8 @@ function Sudoku() {
     
     return (
         <div className={styles.container}  tabIndex={0} onKeyDown={handleKeyDown}>
-            <h1 className={styles.title}>Sudoku</h1>
+            <Header gamesName='Sudoku'/>
+            
             <h2>Difficulty: {difficulty}</h2>
             
             <div className={styles.puzzle}>

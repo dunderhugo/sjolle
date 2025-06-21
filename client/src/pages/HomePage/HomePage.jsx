@@ -8,7 +8,8 @@ function HomePage(){
     return(
 
         <>
-        <Header/>
+        <Header 
+        gamesName='Home'/>
 
             <div className={styles.navContainer}>
                 <div className={styles.navBtn}>Sudoku</div>
