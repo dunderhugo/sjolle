@@ -1,8 +1,8 @@
 import { useState , useEffect} from 'react';
 import './App.css';
-import UnderConstruction from './components/UnderConstruction/UnderConstruction';
+import UnderConstruction from './pages/UnderConstruction/UnderConstruction';
 import Footer from './components/Footer/Footer'
-import Sudoku from './components/Sudoku/Sudoku';
+import Sudoku from './pages/Sudoku/Sudoku';
 
 function App() {
 
