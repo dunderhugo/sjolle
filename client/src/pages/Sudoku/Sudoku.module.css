@@ -1,8 +1,10 @@
-.gameBoard{
+.container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 80vw;
+  height: 80vh;
 }
 
 .cell{
@@ -34,8 +36,8 @@
 
 .puzzle{
   display:grid;
-  grid-template-columns: repeat(9, 50px);
-  grid-template-rows: repeat(9, 50px);
+  grid-template-columns: repeat(9, 40px);
+  grid-template-rows: repeat(9, 40px);
   gap: 0px;
   border: 2px solid grey;
 }
@@ -89,4 +91,16 @@
 .radioActive{
   background-color: white;
   color: black;
+}
+
+.container h1{
+  margin: 5px;
+}
+
+.container h2{
+  margin: 5px;
+}
+
+.cell {
+  touch-action: manipulation;
 }
