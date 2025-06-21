@@ -101,6 +101,6 @@
   margin: 5px;
 }
 
-.cell {
+.cell, .numContainer {
   touch-action: manipulation;
 }

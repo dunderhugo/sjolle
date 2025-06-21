@@ -130,8 +130,8 @@ function Sudoku() {
 
             <div className={styles.numContainer}>
                 <div className={styles.radioContainer}>
-                <div onClick={() =>  setNormalCandidate(true)} className={`${styles.radioSelect} ${normalCandidate  ? styles.radioActive : ""}`}>Normal</div>
-                <div onClick={() =>  setNormalCandidate(false)} className={`${styles.radioSelect} ${normalCandidate  ? "" : styles.radioActive}`}>Candidate</div>
+                {/* <div onClick={() =>  setNormalCandidate(true)} className={`${styles.radioSelect} ${normalCandidate  ? styles.radioActive : ""}`}>Normal</div>
+                <div onClick={() =>  setNormalCandidate(false)} className={`${styles.radioSelect} ${normalCandidate  ? "" : styles.radioActive}`}>Candidate</div> */}
                 </div>
                 <div className={styles.numpad}>
                     <button onClick={() => numPadPress(1)}>1</button>
