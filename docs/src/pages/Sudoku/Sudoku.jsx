@@ -187,8 +187,7 @@ function Sudoku() {
                     <button onClick={() => numPadPress(9)}>9</button>
                     <button onClick={() => numPadPress(0)}>X</button>
                 </div>
-                </div>
-                <button onClick={() => checkSimilarNumbers()}>New Puzzle</button>
+            </div>
         </div>
     );
     
