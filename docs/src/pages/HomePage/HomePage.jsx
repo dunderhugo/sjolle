@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom'
 
 
 function HomePage(){
-    
+
     return(
         <>
         <nav className={styles.navMenu}>
             <Link to="/sudoku">Sudoku</Link>
-            <Link to="/word-guesser">Guess the word</Link>
+            <Link to="/" className={styles.btnDisabled}>Guess the word</Link>
         </nav>
         </>
     );

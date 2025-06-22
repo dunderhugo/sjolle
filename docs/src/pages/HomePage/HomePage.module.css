@@ -21,3 +21,11 @@
     background: #c6c6c6;
     color: #0070f3;
 }
+
+.btnDisabled{
+    opacity: 0.5;
+    pointer-events: none;
+    background: #e0e0e0;
+    color: #888;
+    cursor: not-allowed;
+}

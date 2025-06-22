@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 function LevelSelect(){
 
 
-
-
     return(
         <>
         <h2>Select level</h2>
