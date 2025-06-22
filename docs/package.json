@@ -9,13 +9,14 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-	"predeploy": "npm run build",
-	"deploy": "gh-pages -d dist -o origin -b gh-pages --cname sjogland.se"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist -o origin -b gh-pages --cname sjogland.se"
   },
   "dependencies": {
     "clsx": "^2.1.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.6.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

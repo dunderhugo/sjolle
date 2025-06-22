@@ -40,7 +40,7 @@ function Sudoku() {
             setActiveCell((prev) => ({ rowIndex: prev.rowIndex, colIndex: Math.min(prev.colIndex + 1, 8) }));
         }
         if(originalPuzzle[activeCell.rowIndex][activeCell.colIndex] !== 0){
-            return;
+            return; 
         }
         if(event.key === "Backspace" || event.key === "Delete" || event.key === "Escape") {
             const { rowIndex, colIndex } = activeCell;
@@ -92,6 +92,24 @@ function Sudoku() {
         return isSolved;
     }
 
+
+    //TODO: Fix funxtion to highlight the cells with the same
+    //numbers as the selected cell
+    // function checkSimilarNumbers(){
+        
+    //     if (!activeCell) return;
+    //     const currentNum = puzzle[activeCell.rowIndex][activeCell.colIndex];
+    //     if (!currentNum) return;
+
+    //     puzzle.forEach((row, rowIndex) => {
+    //         row.forEach((num, colIndex) => {
+    //             if (num === currentNum && !(rowIndex === activeCell.rowIndex && colIndex === activeCell.colIndex)) {
+    //                 console.log(`Found similar number at [${rowIndex}, ${colIndex}]`);
+    //             }
+    //         });
+    //     });
+    // }
+
     useEffect(() => {
         fetchApi()
     }, []);
@@ -113,7 +131,7 @@ function Sudoku() {
         <div className={styles.container}  tabIndex={0} onKeyDown={handleKeyDown}>
             <Header gamesName='Sudoku'/>
             
-            <h2>Difficulty: {difficulty}</h2>
+            <h2>Difficulty: <span>{difficulty}</span></h2>
             
             <div className={styles.puzzle}>
             {puzzle.map((row, rowIndex) =>
@@ -149,7 +167,7 @@ function Sudoku() {
                     <button onClick={() => numPadPress(0)}>X</button>
                 </div>
                 </div>
-                {/* <button onClick={fetchApi}>New Puzzle</button> */}
+                <button onClick={() => checkSimilarNumbers()}>New Puzzle</button>
         </div>
     );
     

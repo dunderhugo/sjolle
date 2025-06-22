@@ -1,6 +1,8 @@
 import Header from '../../components/Header/Header';
 import styles from './HomePage.module.css'
 
+import { Link } from 'react-router-dom'
+
 
 function HomePage(){
 
@@ -10,13 +12,17 @@ function HomePage(){
         <>
         <Header 
         gamesName='Home'/>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/sudoku">Sudoku</Link>
+                    </li>
+                    <li>
+                        <Link to="/wordle">Wordle</Link>
+                    </li>
 
-            <div className={styles.navContainer}>
-                <div className={styles.navBtn}>Sudoku</div>
-                <div className={styles.navBtn}>Wordle</div>
-                <div calssName={styles.navBtnDisabled}>NYI</div>
-
-            </div>
+                </ul>
+            </nav>
 
         </>
     );
