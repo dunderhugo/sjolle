@@ -1,9 +1,10 @@
 
 
 
-function WordleBox({ word = "55555", isActive}){
+function WordleBox({ wordToGuess = "55555", isActive, guessedWord = "", currentInput = []}){
     return(
         <>
+        <div></div>
 
         
         </>
