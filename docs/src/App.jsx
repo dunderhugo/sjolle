@@ -9,11 +9,11 @@ import Wordle from './pages/Wordle/Wordle';
 function App() {
   return (
     <>
-    {/* <Sudoku /> */}
+    <Sudoku />
     {/* <HomePage/> */}
     {/* <UnderConstruction /> */}
     {/* <Footer /> */}
-    <Wordle/>
+    {/* <Wordle/> */}
 
     </>
   )
