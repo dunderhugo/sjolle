@@ -1,8 +1,8 @@
 import Keyboard from '../../components/KeyBoard/KeyBoard';
-import styles from './Wordle.module.css'
-import WordleBox from './WordleBox';
+import styles from './WordGuesser.module.css'
+import WordBox from './WordBox';
 import { useEffect, useState } from 'react';
-function Wordle(){
+function WordGuesser(){
     const [wordToGuess, setWordToGuess] = useState("")
     const [guesses, setGuesses] = useState([])
     
@@ -34,4 +34,4 @@ function Wordle(){
     );
 }
 
-export default Wordle;
+export default WordGuesser;

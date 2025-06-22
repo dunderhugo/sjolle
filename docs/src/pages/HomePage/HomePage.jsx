@@ -5,25 +5,13 @@ import { Link } from 'react-router-dom'
 
 
 function HomePage(){
-
-
+    
     return(
-
         <>
-        <Header 
-        gamesName='Home'/>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to="/sudoku">Sudoku</Link>
-                    </li>
-                    <li>
-                        <Link to="/wordle">Wordle</Link>
-                    </li>
-
-                </ul>
-            </nav>
-
+        <nav className={styles.navMenu}>
+            <Link to="/sudoku">Sudoku</Link>
+            <Link to="/word-guesser">Guess the word</Link>
+        </nav>
         </>
     );
 }

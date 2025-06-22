@@ -1,7 +1,23 @@
 
+.navMenu {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #222;
+    gap: 1.5rem;
+}
 
-Header{
-    position: relative;
-    top: 0;
-    left: 0;
+.navMenu a {
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    font-size: 1.2rem;
+    color: #222;
+    background: rgba(255,255,255,0.85);
+    text-decoration: none;
+}
+
+.navMenu a:hover {
+    background: #c6c6c6;
+    color: #0070f3;
 }
