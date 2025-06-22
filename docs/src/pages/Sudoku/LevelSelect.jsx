@@ -1,5 +1,5 @@
 import styles from './Sudoku.module.css';
-
+import { Link } from 'react-router-dom'
 
 function LevelSelect(){
 
@@ -9,9 +9,11 @@ function LevelSelect(){
     return(
         <>
         <h2>Select level</h2>
-        <h3>Easy</h3>
-        <h3>Medium</h3>
-        <h3>Hard</h3>
+        <nav className={styles.navMenu}>
+            <Link to="/sudoku/easy">Easy</Link>
+            <Link to="/sudoku/medium">Medium</Link>
+            <Link to="/sudoku/hard">Hard</Link>
+        </nav>
         </>
     );
 }

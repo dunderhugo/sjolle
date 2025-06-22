@@ -2,28 +2,49 @@ import Cell from './Cell';
 import styles from './Sudoku.module.css';
 import Header from '../../components/Header/Header';
 import { useEffect, useState,  } from 'react';
+import { useParams } from 'react-router-dom';
 
 function Sudoku() {
     const [puzzle, setPuzzle] = useState([]);
     const [solution, setSolution] = useState([]);
-    const [difficulty, setDifficulty] = useState("");
     const [activeCell, setActiveCell] = useState(null);
     const [originalPuzzle, setOriginalPuzzle] = useState([]);
     const [normalCandidate, setNormalCandidate] = useState(false);
 
+    const { difficulty } = useParams();
+
     const fetchApi = async () => {
-        try{
-            const response = await fetch('https://sudoku-api.vercel.app/api/dosuku');
-            const data = await response.json();
-            setPuzzle(data.newboard.grids[0].value);
-            setOriginalPuzzle(data.newboard.grids[0].value);
-            setSolution(data.newboard.grids[0].solution);
-            setDifficulty(data.newboard.grids[0].difficulty);
+        let query;
+        if (difficulty) {
+            query = `{newboard(limit:1,difficulty:"${difficulty}"){grids{value,solution,difficulty}}}`;
+        } else {
+            query = `{newboard(limit:1){grids{value,solution,difficulty}}}`;
         }
-        catch(error){
+        
+        try {
+            const response = await fetch('https://sudoku-api.vercel.app/api/dosuku', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ query })
+            });
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            if (data.newboard && data.newboard.grids && data.newboard.grids[0]) {
+                setPuzzle(data.newboard.grids[0].value);
+                setOriginalPuzzle(data.newboard.grids[0].value);
+                setSolution(data.newboard.grids[0].solution);
+            }
+            
+        } catch(error) {
             console.error("Error fetching board: ", error);
         }
     }
+
+    
 
     const handleKeyDown = (event) => {
         if(!activeCell) return;
