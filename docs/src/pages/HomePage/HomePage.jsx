@@ -49,22 +49,22 @@ function HomePage(){
                 {currentDate}
             </div>
             <div className={styles.volumeControl}>
-            <img 
-                src="/images/audioIcon.svg" 
-                className={styles.audioIcon} 
-                alt="Audio Icon"
-                onClick={() => setShowSlider(!showSlider)}
-            />
-            {showSlider && (
-                <input 
-                type="range" 
-                min="1" 
-                max="100" 
-                value={volume}
-                onChange={handleVolumeChange}
-                className={styles.slider}
+                <img 
+                    src="/images/audioIcon.svg" 
+                    className={styles.audioIcon} 
+                    alt="Audio Icon"
+                    onClick={() => setShowSlider(!showSlider)}
                 />
-            )}
+                {showSlider && (
+                    <input 
+                        type="range" 
+                        min="1" 
+                        max="100" 
+                        value={volume}
+                        onChange={handleVolumeChange}
+                        className={styles.slider}
+                    />
+                )}
             </div>
 
         </footer>

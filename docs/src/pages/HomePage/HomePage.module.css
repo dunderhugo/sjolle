@@ -90,10 +90,9 @@ footer{
 
 .slider {
     position: absolute;
-    bottom: 120%;
+    bottom: 250%;
     left: 50%;
-    transform: translateX(-50%);
-    transform: rotate(270deg);
+    transform: translateX(-50%) rotate(270deg);
     width: 100px;
     display: block;
     z-index: 10;
