@@ -1,18 +1,69 @@
 import Header from '../../components/Header/Header';
 import styles from './HomePage.module.css'
-
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 
-
 function HomePage(){
+    const [userLanguage, setUserLanguage] = useState("en");
+    const [currentTime, setCurrentTime] = useState(Date());
+    const [currentDate, setCurrentDate] = useState(Date());
+
+    const [showSlider, setShowSlider] = useState(false);
+    const [volume, setVolume] = useState(50);
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setCurrentTime(new Date().toLocaleTimeString());
+            setCurrentDate(new Date().toLocaleDateString());
+        }, 1000);
+        return () => clearInterval(intervalId);
+    }, []);
+
+    const handleVolumeChange = (e) => {
+        setVolume(Number(e.target.value))
+        // if <audio> element
+        // audioRef.current.volume = e.target.value / 100;
+    }
 
     return(
-        <>
-        <nav className={styles.navMenu}>
+        <div className={styles.home}>
+        {/* <nav className={styles.navMenu}>
             <Link to="/sudoku">Sudoku</Link>
             <Link to="/" className={styles.btnDisabled}>Guess the word</Link>
-        </nav>
-        </>
+        </nav> */}
+        <main className={styles.main}>
+            
+        </main>
+
+
+        <footer>
+            <div className={styles.language}>
+                {userLanguage}
+            </div>
+            <div className={styles.dateTime}>
+                {currentTime}
+                {currentDate}
+            </div>
+            <div className={styles.volumeControl}>
+            <img 
+                src="/images/audioIcon.svg" 
+                className={styles.audioIcon} 
+                alt="Audio Icon"
+                onClick={() => setShowSlider(!showSlider)}
+            />
+            {showSlider && (
+                <input 
+                type="range" 
+                min="1" 
+                max="100" 
+                value={volume}
+                onChange={handleVolumeChange}
+                className={styles.slider}
+                />
+            )}
+            </div>
+
+        </footer>
+        </div>
     );
 }
 
