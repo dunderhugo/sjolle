@@ -12,16 +12,26 @@ function HomePage(){
     const t = language[userLanguage];
     const [currentTime, setCurrentTime] = useState(Date());
     const [currentDate, setCurrentDate] = useState(Date());
-
     const [showSlider, setShowSlider] = useState(false);
     const [volume, setVolume] = useState(50);
+
     useEffect(() => {
-        const intervalId = setInterval(() => {
-            setCurrentTime(new Date().toLocaleTimeString());
-            setCurrentDate(new Date().toLocaleDateString());
-        }, 1000);
-        return () => clearInterval(intervalId);
-    }, []);
+        const updateDateTime = () => {
+            const now = new Date()
+            if (userLanguage === "en") {
+                setCurrentDate(now.toLocaleDateString("en-US"))
+                setCurrentTime(now.toLocaleTimeString("en-US", { hour12: true }))
+            } else {
+                setCurrentDate(now.toLocaleDateString("sv-SE"))
+                setCurrentTime(now.toLocaleTimeString("sv-SE", { hour12: false }))
+            }
+        }
+
+        updateDateTime()
+        const intervalId = setInterval(updateDateTime, 1000)
+
+        return () => clearInterval(intervalId)
+    }, [userLanguage])
 
     const handleVolumeChange = (e) => {
         setVolume(Number(e.target.value))
