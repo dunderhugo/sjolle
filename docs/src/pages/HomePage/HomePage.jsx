@@ -2,9 +2,14 @@ import Header from '../../components/Header/Header';
 import styles from './HomePage.module.css'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
+import en from '../../locales/en.json';
+import sv from '../../locales/sv.json';
+
+const language = {en, sv};
 
 function HomePage(){
     const [userLanguage, setUserLanguage] = useState("en");
+    const t = language[userLanguage];
     const [currentTime, setCurrentTime] = useState(Date());
     const [currentDate, setCurrentDate] = useState(Date());
 
@@ -36,8 +41,8 @@ function HomePage(){
 
 
         <footer>
-            <div className={styles.language}>
-                {userLanguage}
+            <div className={styles.language} onClick={() => setUserLanguage(userLanguage === "en" ? "sv" : "en")}>
+                {t.languageName}
             </div>
             <div className={styles.dateTime}>
                 {currentTime}
