@@ -38,35 +38,35 @@ function HomePage(){
         <main className={styles.main}>
             
         </main>
-
-
         <footer>
-            <div className={styles.language} onClick={() => setUserLanguage(userLanguage === "en" ? "sv" : "en")}>
-                {t.languageName}
-            </div>
-            <div className={styles.dateTime}>
-                {currentTime}
-                {currentDate}
-            </div>
-            <div className={styles.volumeControl}>
-                <img 
-                    src="/images/audioIcon.svg" 
-                    className={styles.audioIcon} 
-                    alt="Audio Icon"
-                    onClick={() => setShowSlider(!showSlider)}
-                />
-                {showSlider && (
-                    <input 
-                        type="range" 
-                        min="1" 
-                        max="100" 
-                        value={volume}
-                        onChange={handleVolumeChange}
-                        className={styles.slider}
+            
+            <div className={styles.rightFooter}>
+                <div className={styles.language} onClick={() => setUserLanguage(userLanguage === "en" ? "sv" : "en")}>
+                    {t.languageName}
+                </div>
+                <div className={styles.volumeControl}>
+                    <img 
+                        src="/images/audioIcon.svg" 
+                        className={styles.audioIcon} 
+                        alt="Audio Icon"
+                        onClick={() => setShowSlider(!showSlider)}
                     />
-                )}
+                    {showSlider && (
+                        <input 
+                            type="range" 
+                            min="1" 
+                            max="100" 
+                            value={volume}
+                            onChange={handleVolumeChange}
+                            className={styles.slider}
+                        />
+                    )}
+                </div>
+                <div className={styles.dateTime}>
+                    <p>{currentTime}</p>
+                    <p>{currentDate}</p>
+                </div>
             </div>
-
         </footer>
         </div>
     );
