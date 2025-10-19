@@ -46,7 +46,7 @@ function HomePage(){
             <Link to="/" className={styles.btnDisabled}>Guess the word</Link>
         </nav> */}
         <main className={styles.main}>
-            
+          
         </main>
         <footer>
             

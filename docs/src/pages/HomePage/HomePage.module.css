@@ -1,110 +1,112 @@
 /* 
 .navMenu {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    background-color: #222;
-    gap: 1.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #222;
+  gap: 1.5rem;
 }
 
 .navMenu a {
-    padding: 0.5rem 1.5rem;
-    border-radius: 8px;
-    transition: background 0.2s, color 0.2s;
-    font-size: 1.2rem;
-    color: #222;
-    background: rgba(255,255,255,0.85);
-    text-decoration: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+  font-size: 1.2rem;
+  color: #222;
+  background: rgba(255,255,255,0.85);
+  text-decoration: none;
 }
 
 .navMenu a:hover {
-    background: #c6c6c6;
-    color: #0070f3;
+  background: #c6c6c6;
+  color: #0070f3;
 }
 
 .btnDisabled{
-    opacity: 0.5;
-    pointer-events: none;
-    background: #e0e0e0;
-    color: #888;
-    cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+  background: #e0e0e0;
+  color: #888;
+  cursor: not-allowed;
 } */
 
 .home {
-    background: blue;
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
 }
 
 footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 5%;
-    text-align: center;
-    background-color: #222;
-    border-top: #444 solid 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5%;
+  text-align: center;
+  background-color: #222;
+  border-top: #444 solid 1px;
 }
 
 .rightFooter{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    position: absolute;
-    right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  right: 1rem;
 }
 
 .dateTime{
-    font-size: 0.9rem;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
+  font-size: 0.9rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
 .dateTime p{
-    margin: 0;
+  margin: 0;
 }
 
 .language{
-    color: white;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+  color: white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .language:hover{
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .volumeControl {
-    position: relative; /* parent is relative */
-    display: inline-block;
-    width: 24px;
-    height: 24px;
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+.volumeControl img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(104deg) brightness(103%) contrast(103%);
 }
 
 .audioIcon {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }
 
 .slider {
-    position: absolute;
-    bottom: 320%;
-    left: 50%;
-    transform: translateX(-50%) rotate(270deg);
-    width: 100px;
-    display: block;
-    z-index: 10;
-    opacity: 0.7;
-    outline: none;
-    transition: opacity .2s;
+  position: absolute;
+  bottom: 320%;
+  left: 50%;
+  transform: translateX(-50%) rotate(270deg);
+  width: 100px;
+  display: block;
+  z-index: 10;
+  opacity: 0.7;
+  outline: none;
+  transition: opacity .2s;
 }
 .slider:hover {
-    opacity: 1;
+  opacity: 1;
 }
