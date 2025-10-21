@@ -39,6 +39,9 @@ function HomePage(){
     // if <audio> element
     // audioRef.current.volume = e.target.value / 100;
   }
+  const handleOpenSudoku = () =>{
+    console.log("Opening sudoku...")
+  }
 
   return(
     <div className={styles.body}>
@@ -48,11 +51,13 @@ function HomePage(){
         <Link to="/" className={styles.btnDisabled}>Guess the word</Link>
       </nav> */}
       <main className={styles.main}>
-        <MenuIcon></MenuIcon>
+        <MenuIcon/>
         <MenuIcon 
         itemIcon="/images/sudoku-icon.svg"
         itemTitle='Sudoku'
+        onOpen={handleOpenSudoku}
         />
+        
         
       </main>
       <footer>
