@@ -21,7 +21,6 @@
   background: #c6c6c6;
   color: #0070f3;
 }
-
 .btnDisabled{
   opacity: 0.5;
   pointer-events: none;
@@ -31,9 +30,17 @@
 } */
 
 .home {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   margin: 0;
+  position: relative;
+}
+
+.body{
+  height: 720px;
+  width: 1280px;
+  background-color: red;
+  position: relative;
 }
 
 footer{
@@ -43,7 +50,7 @@ footer{
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 5%;
+  height: 3rem;
   text-align: center;
   background-color: #222;
   border-top: #444 solid 1px;
