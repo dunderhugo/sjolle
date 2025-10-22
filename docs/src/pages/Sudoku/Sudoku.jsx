@@ -1,26 +1,16 @@
 import Cell from './Cell';
 import styles from './Sudoku.module.css';
-import Header from '../../components/Header/Header';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 
 function Sudoku() {
   const [puzzle, setPuzzle] = useState([]);
   const [solution, setSolution] = useState([]);
   const [activeCell, setActiveCell] = useState(null);
   const [originalPuzzle, setOriginalPuzzle] = useState([]);
-  const [normalCandidate, setNormalCandidate] = useState(false);
-
-  const { difficulty } = useParams();
-
+  const [difficulty, setDifficulty] = useState("");
+  
   const fetchApi = async () => {
-    let query;
-    if (difficulty) {
-      query = `{newboard(limit:1,difficulty:"${difficulty}"){grids{value,solution,difficulty}}}`;
-    } else {
-      query = `{newboard(limit:1){grids{value,solution,difficulty}}}`;
-    }
-    
+    const query = `{newboard(limit:1){grids{value,solution,difficulty}}}`;
     try {
       const response = await fetch('https://sudoku-api.vercel.app/api/dosuku', {
         method: 'POST',
@@ -37,6 +27,7 @@ function Sudoku() {
         setPuzzle(data.newboard.grids[0].value);
         setOriginalPuzzle(data.newboard.grids[0].value);
         setSolution(data.newboard.grids[0].solution);
+        setDifficulty(data.newboard.grids[0].difficulty)
       }
     } catch(error) {
       console.error("Error fetching board: ", error);
@@ -45,21 +36,12 @@ function Sudoku() {
 
   const handleKeyDown = (event) => {
     if(!activeCell) return;
-    if(event.key === "ArrowUp") {
-      setActiveCell((prev) => ({ rowIndex: Math.max(prev.rowIndex - 1, 0), colIndex: prev.colIndex }));
-    }
-    if(event.key === "ArrowDown") {
-      setActiveCell((prev) => ({ rowIndex: Math.min(prev.rowIndex + 1, 8), colIndex: prev.colIndex }));
-    }
-    if(event.key === "ArrowLeft") {
-      setActiveCell((prev) => ({ rowIndex: prev.rowIndex, colIndex: Math.max(prev.colIndex - 1, 0) }));
-    }
-    if(event.key === "ArrowRight") {
-      setActiveCell((prev) => ({ rowIndex: prev.rowIndex, colIndex: Math.min(prev.colIndex + 1, 8) }));
-    }
-    if(originalPuzzle[activeCell.rowIndex][activeCell.colIndex] !== 0){
-      return; 
-    }
+    if(event.key === "ArrowUp") setActiveCell((prev) => ({ rowIndex: Math.max(prev.rowIndex - 1, 0), colIndex: prev.colIndex }));
+    if(event.key === "ArrowDown") setActiveCell((prev) => ({ rowIndex: Math.min(prev.rowIndex + 1, 8), colIndex: prev.colIndex }));
+    if(event.key === "ArrowLeft") setActiveCell((prev) => ({ rowIndex: prev.rowIndex, colIndex: Math.max(prev.colIndex - 1, 0) }));
+    if(event.key === "ArrowRight")setActiveCell((prev) => ({ rowIndex: prev.rowIndex, colIndex: Math.min(prev.colIndex + 1, 8) }));
+    if(originalPuzzle[activeCell.rowIndex][activeCell.colIndex] !== 0) return;
+
     if(event.key === "Backspace" || event.key === "Delete" || event.key === "Escape") {
       const { rowIndex, colIndex } = activeCell;
       const newPuzzle = puzzle.map((row, rIdx) =>
@@ -82,13 +64,11 @@ function Sudoku() {
 
   function numPadPress(numBtn) {
     if(!activeCell) return;
-
-    if(originalPuzzle[activeCell.rowIndex][activeCell.colIndex] !== 0 || originalPuzzle[activeCell.rowIndex][activeCell.colIndex] == null){
+    if(originalPuzzle[activeCell.rowIndex][activeCell.colIndex] !== 0 || originalPuzzle[activeCell.rowIndex][activeCell.colIndex] == null) {
       return;
     }
     
     const { rowIndex, colIndex } = activeCell;
-
     const newPuzzle = puzzle.map((row, rIdx) =>
       row.map((num, cIdx) =>
         rIdx === rowIndex && cIdx === colIndex ? numBtn : num
@@ -125,11 +105,9 @@ function Sudoku() {
       console.log("not solved yet")
     }
   }, [puzzle]);
-  
+    
   return (
-    <div className={styles.container} tabIndex={0} onKeyDown={handleKeyDown}>
-      <p>Difficulty: <span>{difficulty}</span></p>
-      
+    <div className={styles.container} tabIndex={0} onKeyDown={handleKeyDown}>      
       <div className={styles.puzzle}>
         {puzzle.map((row, rowIndex) =>
           row.map((num, colIndex) => (
@@ -145,7 +123,7 @@ function Sudoku() {
           ))
         )}
       </div>
-
+      <p className={styles.difficulty}>{difficulty}</p>
       <div className={styles.numContainer}>
         <div className={styles.radioContainer}>
         </div>
@@ -162,7 +140,7 @@ function Sudoku() {
           <button onClick={() => numPadPress(0)}>X</button>
         </div>
       </div>
-    </div>
+  </div>
   );
 }
 
