@@ -1,11 +1,9 @@
 
-
-
-
 .container{
   overflow: hidden;
   border-radius: 5px;
   width: 450px;
+  position: fixed;
 }
 
 .titleBar{
