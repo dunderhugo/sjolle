@@ -47,6 +47,7 @@ function HomePage(){
 
   return(
     <div className={styles.body}>
+      <img className={styles.backgroundImage} src="/images/windows-xp.jpg"/>
       <div className={styles.home}>
       {/* <nav className={styles.navMenu}>
         <Link to="/sudoku">Sudoku</Link>
