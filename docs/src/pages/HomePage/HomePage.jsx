@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import en from '../../locales/en.json';
 import sv from '../../locales/sv.json';
 import MenuIcon from '../../components/MenuIcon/MenuIcon';
+import WindowFrame from '../../components/WindowFrame/WindowFrame';
+import Sudoku from '../Sudoku/Sudoku';
 
 const language = {en, sv};
 
@@ -51,11 +53,16 @@ function HomePage(){
         <Link to="/" className={styles.btnDisabled}>Guess the word</Link>
       </nav> */}
       <main className={styles.main}>
-        <MenuIcon/>
+        {/* <MenuIcon/>
         <MenuIcon 
         itemIcon="/images/sudoku-icon.svg"
         itemTitle='Sudoku'
         onOpen={handleOpenSudoku}
+        /> */}
+        <WindowFrame 
+          windowContent={<Sudoku/>}
+          title={"Sudoku"}
+          icon={"/images/sudoku-icon.svg"}
         />
         
         

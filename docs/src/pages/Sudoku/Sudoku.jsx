@@ -150,9 +150,7 @@ function Sudoku() {
     
     return (
         <div className={styles.container}  tabIndex={0} onKeyDown={handleKeyDown}>
-            <Header gamesName='Sudoku'/>
-            
-            <h2>Difficulty: <span>{difficulty}</span></h2>
+            <p>Difficulty: <span>{difficulty}</span></p>
             
             <div className={styles.puzzle}>
             {puzzle.map((row, rowIndex) =>

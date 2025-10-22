@@ -1,0 +1,54 @@
+
+
+
+
+.container{
+  overflow: hidden;
+  border-radius: 5px;
+  width: 450px;
+}
+
+.titleBar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1a1a1a;
+}
+
+
+.windowInfo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+}
+.windowInfo img{
+  height: 16px;
+  width: 16px;
+  padding-right: 10px;
+}
+
+
+.windowContent{
+  width: 100%;
+  height: 100%;
+}
+
+.closeBtn, .minimizeBtn{
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 0%;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 0;
+  transition: 0.2s;
+}
+
+.closeBtn:hover{
+  background-color: red;
+}
+.minimizeBtn:hover{
+  background-color: gray;
+}

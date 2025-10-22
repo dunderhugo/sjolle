@@ -8,19 +8,17 @@
   border: 2px solid transparent;
   border-radius: 8px;
   cursor: pointer;
-  outline: none; /* Remove default blue outline, we'll make our own */
+  outline: none;
   transition: background-color 0.2s, border-color 0.2s;
 }
 
-/* 1. HOVER STATE */
 .iconContainer:hover {
-  background-color: #f0f0f0; /* Light gray background on hover */
+  background-color: #f0f0f0;
 }
 
-/* 2. FOCUSED/SELECTED STATE (from single-click) */
 .iconContainer.selected {
-  background-color: #e0e8ff; /* Light blue background */
-  border-color: #0056b3;     /* Blue border */
+  background-color: #e0e8ff;
+  border-color: #0056b3;
 }
 
 .iconContainer img {
