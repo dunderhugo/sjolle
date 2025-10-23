@@ -111,24 +111,27 @@ function Sudoku() {
   return (
     <>
     <div className={styles.container} tabIndex={0} onKeyDown={handleKeyDown}>      
-      <div className={styles.puzzle}>
-        {puzzle.map((row, rowIndex) =>
-          row.map((num, colIndex) => (
-            <Cell
-              key={`${rowIndex}-${colIndex}`}
-              num={num}
-              rowIndex={rowIndex}
-              colIndex={colIndex}
-              activeCell={activeCell}
-              originalPuzzle={originalPuzzle}
-              onClick={() => setActiveCell({ rowIndex, colIndex })}
-            />
-          ))
-        )}
+      <div>
+        <div className={styles.puzzle}>
+          {puzzle.map((row, rowIndex) =>
+            row.map((num, colIndex) => (
+              <Cell
+                key={`${rowIndex}-${colIndex}`}
+                num={num}
+                rowIndex={rowIndex}
+                colIndex={colIndex}
+                activeCell={activeCell}
+                originalPuzzle={originalPuzzle}
+                onClick={() => setActiveCell({ rowIndex, colIndex })}
+              />
+            ))
+          )}
+        </div>
+        <p className={styles.difficulty}>
+          {t(`sudoku.difficulty`)}: {t(`sudoku.difficultySetting.${difficulty.toLowerCase()}`)}
+        </p>
       </div>
-      <p className={styles.difficulty}>
-        {t(`sudoku.difficulty.${difficulty.toLowerCase()}`)}
-      </p>
+
 
       <div className={styles.numContainer}>
         <div className={styles.numpad}>
