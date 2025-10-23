@@ -5,9 +5,10 @@
   "sudoku":
   {
     "name": "Sudoku",
-    "difficulty": {
+    "difficulty": "Svårighetsgrad",
+    "difficultySetting": {
       "easy": "Lätt",
-      "medium": "Mellan",
+      "medium": "Medel",
       "hard": "Svår"
     }
   },

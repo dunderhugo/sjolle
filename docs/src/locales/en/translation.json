@@ -5,7 +5,8 @@
   "sudoku": 
   {
     "name": "Sudoku",
-    "difficulty": {
+    "difficulty": "Difficulty",
+    "difficultySetting": {
       "easy": "Easy",
       "medium": "Medium",
       "hard": "Hard"
