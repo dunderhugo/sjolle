@@ -1,0 +1,15 @@
+{
+  "languageName": "EN",
+  "home": "Home",
+  "sudoku": 
+  {
+    "name": "Sudoku",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard"
+  },
+  "tooltip":{
+    "close":"Close"
+  }
+  
+}

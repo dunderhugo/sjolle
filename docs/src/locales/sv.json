@@ -1,0 +1,14 @@
+{
+  "languageName": "SV",
+  "home": "Hem",
+  "sudoku":
+  {
+    "name": "Sudoku",
+    "easy": "Lätt",
+    "medium": "Mellan",
+    "hard": "Svår"
+  },
+  "tooltip":{
+    "close":"Stäng"
+  }
+}

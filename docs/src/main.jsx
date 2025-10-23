@@ -6,13 +6,11 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Sudoku from './pages/Sudoku/Sudoku.jsx'
 import LevelSelect from './pages/Sudoku/LevelSelect.jsx';
 import WordGuesser from './pages/WordGuesser/WordGuesser.jsx'
+import '../i18n';
 
 const router = createBrowserRouter([
   {path : "/", element : <App/>},
-  {path : "/sudoku", element : <LevelSelect/>},
-  {path: "/sudoku/:difficulty", element: <Sudoku/>},
   {path : "/word-guesser", element : <WordGuesser/>},
-
 ])
 
 createRoot(document.getElementById('root')).render(
