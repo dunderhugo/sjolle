@@ -1,8 +1,10 @@
 import Cell from './Cell';
 import styles from './Sudoku.module.css';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function Sudoku() {
+  const { t } = useTranslation();
   const [puzzle, setPuzzle] = useState([]);
   const [solution, setSolution] = useState([]);
   const [activeCell, setActiveCell] = useState(null);
@@ -34,6 +36,14 @@ function Sudoku() {
     }
   }
 
+  const difficultyText = (difficulty) => {
+    switch(difficulty) {
+      case "easy": return t('sudoku.easy');
+      case "medium": return t('sudoku.medium');
+      case "hard": return t('sudoku.hard');
+    }
+  }
+  
   const handleKeyDown = (event) => {
     if(!activeCell) return;
     if(event.key === "ArrowUp") setActiveCell((prev) => ({ rowIndex: Math.max(prev.rowIndex - 1, 0), colIndex: prev.colIndex }));
@@ -93,6 +103,11 @@ function Sudoku() {
   useEffect(() => {
     fetchApi()
   }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      setDifficulty(difficultyText(difficulty));
+    }, 1000);
+  }, [difficulty]);
 
   useEffect(() => {
     if(!activeCell) return;
@@ -107,6 +122,7 @@ function Sudoku() {
   }, [puzzle]);
     
   return (
+    <>
     <div className={styles.container} tabIndex={0} onKeyDown={handleKeyDown}>      
       <div className={styles.puzzle}>
         {puzzle.map((row, rowIndex) =>
@@ -125,8 +141,6 @@ function Sudoku() {
       </div>
       <p className={styles.difficulty}>{difficulty}</p>
       <div className={styles.numContainer}>
-        <div className={styles.radioContainer}>
-        </div>
         <div className={styles.numpad}>
           <button onClick={() => numPadPress(1)}>1</button>
           <button onClick={() => numPadPress(2)}>2</button>
@@ -141,6 +155,7 @@ function Sudoku() {
         </div>
       </div>
   </div>
+  </>
   );
 }
 

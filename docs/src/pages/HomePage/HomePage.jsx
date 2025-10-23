@@ -1,18 +1,15 @@
-import Header from '../../components/Header/Header';
 import styles from './HomePage.module.css'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import en from '../../locales/en.json';
-import sv from '../../locales/sv.json';
 import MenuIcon from '../../components/MenuIcon/MenuIcon';
 import WindowFrame from '../../components/WindowFrame/WindowFrame';
 import Sudoku from '../Sudoku/Sudoku';
+import { useTranslation } from 'react-i18next';
 
-const language = {en, sv};
 
 function HomePage(){
+  const { t, i18n } = useTranslation();
   const [userLanguage, setUserLanguage] = useState("en");
-  const t = language[userLanguage];
   const [currentTime, setCurrentTime] = useState(Date());
   const [currentDate, setCurrentDate] = useState(Date());
   const [showSlider, setShowSlider] = useState(false);
@@ -48,11 +45,7 @@ function HomePage(){
   return(
     <div className={styles.body}>
       <img className={styles.backgroundImage} src="/images/windows-xp.jpg"/>
-      <div className={styles.home}>
-      {/* <nav className={styles.navMenu}>
-        <Link to="/sudoku">Sudoku</Link>
-        <Link to="/" className={styles.btnDisabled}>Guess the word</Link>
-      </nav> */}
+
       <main className={styles.main}>
         {/* <MenuIcon/>
         <MenuIcon 
@@ -62,18 +55,22 @@ function HomePage(){
         /> */}
         <WindowFrame 
           windowContent={<Sudoku/>}
-          title={"Sudoku"}
+          title={t('sudoku.name')}
           icon={"/images/sudoku-icon.svg"}
         />
-        
-        
       </main>
       <footer>
-          
         <div className={styles.rightFooter}>
-          <div className={styles.language} onClick={() => setUserLanguage(userLanguage === "en" ? "sv" : "en")}>
-            {t.languageName}
-          </div>
+          <div 
+              className={styles.language} 
+              onClick={() => {
+                const newLang = userLanguage === "en" ? "sv" : "en";
+                setUserLanguage(newLang);
+                i18n.changeLanguage(newLang);
+              }}
+            >
+              {t('languageName')}
+            </div>
           <div className={styles.volumeControl}>
             <img 
               src="/images/audioIcon.svg" 
@@ -98,7 +95,6 @@ function HomePage(){
             </div>
           </div>
       </footer>
-      </div>
     </div>
   );
 }

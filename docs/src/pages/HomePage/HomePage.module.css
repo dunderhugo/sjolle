@@ -29,24 +29,19 @@
   cursor: not-allowed;
 } */
 
-.home {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  position: relative;
-}
+
 
 .body{
-  height: 720px;
-  width: 1280px;
+  height: 100vh;
+  width: 100vw;
   position: relative;
 }
 .backgroundImage{
   z-index: -1;
   position: fixed;
   left: 0;
-  width: 1280px;
-  height: 720px;
+  width: 100vw;
+  height: 100vh;
 }
 
 footer{
@@ -124,9 +119,3 @@ footer{
   opacity: 1;
 }
 
-@media only screen and (max-width: 1280px){
-  .body{
-
-  }
-  
-}
