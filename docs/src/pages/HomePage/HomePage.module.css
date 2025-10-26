@@ -74,6 +74,15 @@ footer{
   right: 1rem;
 }
 
+.leftFooter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  left: 1rem;
+}
+
 .dateTime{
   font-size: 0.9rem;
   color: white;

@@ -6,6 +6,7 @@ import UnderConstruction from '../../components/UnderConstruction/UnderConstruct
 import WindowFrame from '../../components/WindowFrame/WindowFrame';
 import Sudoku from '../Sudoku/Sudoku';
 import { useTranslation } from 'react-i18next';
+import TaskBarItem from '../../components/TaskBarItem/TaskBarItem';
 
 
 function HomePage(){
@@ -62,6 +63,9 @@ function HomePage(){
         />
       </main>
       <footer>
+        <div className={styles.leftFooter}>
+          <TaskBarItem/>
+        </div>
         <div className={styles.rightFooter}>
           <div 
               className={styles.language} 
