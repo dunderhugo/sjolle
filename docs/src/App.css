@@ -5,7 +5,6 @@
 }
 
 /* Colors */
- --primary-bg-color: #1e90ff;
 :root{
   --bg-dark:  hsl(220, 0%, 0%);
   --bg: hsl(220, 0%, 5%);
