@@ -5,9 +5,12 @@
   "sudoku": 
   {
     "name": "Sudoku",
-    "easy": "Easy",
-    "medium": "Medium",
-    "hard": "Hard"
+    "difficulty": "Difficulty",
+    "difficultySetting": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    }
   },
   "tooltip":{
     "close":"Close"

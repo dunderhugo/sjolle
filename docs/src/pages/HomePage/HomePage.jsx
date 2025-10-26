@@ -2,6 +2,7 @@ import styles from './HomePage.module.css'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import MenuIcon from '../../components/MenuIcon/MenuIcon';
+import UnderConstruction from '../../components/UnderConstruction/UnderConstruction';
 import WindowFrame from '../../components/WindowFrame/WindowFrame';
 import Sudoku from '../Sudoku/Sudoku';
 import { useTranslation } from 'react-i18next';
@@ -45,6 +46,7 @@ function HomePage(){
   return(
     <div className={styles.body}>
       <img className={styles.backgroundImage} src="/images/windows-xp.jpg"/>
+      <img className={styles.workInProgress} src="/images/work-in-progress.png" alt="Under Construction"/>
 
       <main className={styles.main}>
         {/* <MenuIcon/>

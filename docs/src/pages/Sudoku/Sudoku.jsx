@@ -36,14 +36,6 @@ function Sudoku() {
     }
   }
 
-  const difficultyText = (difficulty) => {
-    switch(difficulty) {
-      case "easy": return t('sudoku.easy');
-      case "medium": return t('sudoku.medium');
-      case "hard": return t('sudoku.hard');
-    }
-  }
-  
   const handleKeyDown = (event) => {
     if(!activeCell) return;
     if(event.key === "ArrowUp") setActiveCell((prev) => ({ rowIndex: Math.max(prev.rowIndex - 1, 0), colIndex: prev.colIndex }));
@@ -103,11 +95,6 @@ function Sudoku() {
   useEffect(() => {
     fetchApi()
   }, []);
-  useEffect(() => {
-    setTimeout(() => {
-      setDifficulty(difficultyText(difficulty));
-    }, 1000);
-  }, [difficulty]);
 
   useEffect(() => {
     if(!activeCell) return;
@@ -124,22 +111,28 @@ function Sudoku() {
   return (
     <>
     <div className={styles.container} tabIndex={0} onKeyDown={handleKeyDown}>      
-      <div className={styles.puzzle}>
-        {puzzle.map((row, rowIndex) =>
-          row.map((num, colIndex) => (
-            <Cell
-              key={`${rowIndex}-${colIndex}`}
-              num={num}
-              rowIndex={rowIndex}
-              colIndex={colIndex}
-              activeCell={activeCell}
-              originalPuzzle={originalPuzzle}
-              onClick={() => setActiveCell({ rowIndex, colIndex })}
-            />
-          ))
-        )}
+      <div>
+        <div className={styles.puzzle}>
+          {puzzle.map((row, rowIndex) =>
+            row.map((num, colIndex) => (
+              <Cell
+                key={`${rowIndex}-${colIndex}`}
+                num={num}
+                rowIndex={rowIndex}
+                colIndex={colIndex}
+                activeCell={activeCell}
+                originalPuzzle={originalPuzzle}
+                onClick={() => setActiveCell({ rowIndex, colIndex })}
+              />
+            ))
+          )}
+        </div>
+        <p className={styles.difficulty}>
+          {t(`sudoku.difficulty`)}: {t(`sudoku.difficultySetting.${difficulty.toLowerCase()}`)}
+        </p>
       </div>
-      <p className={styles.difficulty}>{difficulty}</p>
+
+
       <div className={styles.numContainer}>
         <div className={styles.numpad}>
           <button onClick={() => numPadPress(1)}>1</button>

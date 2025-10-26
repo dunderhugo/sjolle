@@ -6,6 +6,8 @@
   position: fixed;
   border: solid 1px black;
   background-color: black;
+  resize: both;
+  overflow: auto;
 }
 
 .titleBar{
@@ -13,6 +15,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: #1a1a1a;
+  min-height: fit-content;
 }
 
 
