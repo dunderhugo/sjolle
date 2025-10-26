@@ -4,6 +4,16 @@
   padding: 0px;
 }
 
+/* Colors */
+ --primary-bg-color: #1e90ff;
+:root{
+  --bg-dark:  hsl(220, 0%, 0%);
+  --bg: hsl(220, 0%, 5%);
+  --bg-light: hsl(220, 0%, 10%);
+  --text: hsl(220, 0%, 95%);
+  --text-muted: hsl(220, 0%, 70%);
+}
+
 /* JetBrains Mono Font Faces */
 @font-face {
   font-family: 'JetBrains Mono';
