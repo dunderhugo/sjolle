@@ -1,0 +1,26 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.taskBarItem{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  transition: 0.2s;
+}
+
+.icon{
+  width: 24px;
+  height: 24px;
+}
+
+.taskBarItem:hover{
+  background-color: #333;
+  border-radius: 5px;
+}
